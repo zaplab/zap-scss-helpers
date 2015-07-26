@@ -1,0 +1,109 @@
+
+@mixin zap-global-box-sizing {
+    *,
+    *:before,
+    *:after {
+        @include box-sizing(border-box);
+    }
+}
+
+@mixin zap-rem($property, $values) {
+    $px: ();
+    $rem: ();
+
+    @each $value in $values {
+        @if $value == 0 or $value == auto {
+            $px: append($px, $value);
+            $rem: append($rem, $value);
+        } @else {
+            $unit: unit($value);
+            $val: zap-parse-int($value);
+
+            @if $unit == "px" {
+                $px: append($px, round($val) + px);
+                $rem: append($rem, ($val / zap-strip-units($zap-font-size-html) + rem));
+            } @else if $unit == "rem" {
+                $px: append($px, (round($val * zap-strip-units($zap-font-size-html)) + px));
+                $rem: append($rem, $value);
+            } @else {
+                $px: append($px, (round($val) + px));
+                $rem: append($rem, ($val / zap-strip-units($zap-font-size-html) + rem));
+            }
+        }
+    }
+
+    @if $px == $rem {
+        #{$property}: $px;
+    } @else {
+        @if $zap-rem-fallback == true or $zap-rem-support == false {
+            #{$property}: $px;
+        }
+        @if $zap-rem-support == true {
+            #{$property}: $rem;
+        }
+    }
+}
+
+@mixin zap-clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin zap-hide-text() {
+    text-indent: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@mixin zap-hide-element() {
+    position: absolute;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+@mixin zap-reset-list($margin: 0, $padding: 0) {
+    @include zap-rem(margin, $margin);
+    @include zap-rem(padding, $padding);
+    list-style: none;
+}
+
+@mixin zap-list-reset($margin: 0, $padding: 0) {
+    @include zap-reset-list($margin, $padding);
+}
+
+// just use $classList: "" if you want to achieve &,&:focus,&:hover for example
+@mixin zap-hover($focus: true, $active: false, $classList: null) {
+    $selector: ();
+
+    // TODO: multiple ..
+    @if ($classList != null) {
+        $classList: unquote("&#{$classList}");
+        $selector: append($selector, unquote($classList), comma);
+    }
+
+    @if ($active) {
+        $selector: append($selector, unquote("&:active"), comma);
+    }
+
+    @if ($focus) {
+        $selector: append($selector, unquote("&:focus"), comma);
+    }
+
+    $selector: append($selector, unquote("&:hover"), comma);
+
+    #{$selector} {
+        @content;
+    }
+}

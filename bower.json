@@ -1,0 +1,22 @@
+{
+  "name": "zap-scss-helpers",
+  "private": true,
+  "version": "0.0.0",
+  "main": [
+    "dist/_functions.scss",
+    "dist/_mixins.scss",
+    "dist/_utilities.scss",
+    "dist/_variables.scss",
+    "dist/main.scss"
+  ],
+  "ignore": [
+    "node_modules",
+    "src",
+    ".bowerrc",
+    ".editorconfig",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {}
+}

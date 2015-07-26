@@ -1,0 +1,19 @@
+{
+  "name": "zap-scss-helpers",
+  "private": true,
+  "version": "0.0.0",
+  "author": {
+    "name": "Sebastian Herber",
+    "email": "herber@zaplab.at",
+    "url": "http://www.zaplab.at"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "postinstall": "node_modules/.bin/bower install"
+  }
+}
