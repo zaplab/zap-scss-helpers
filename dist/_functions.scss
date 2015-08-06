@@ -1,0 +1,76 @@
+@function zap-add-no-query($media) {
+    @return $media, 'no-query' true;
+}
+
+@function zap-image-url($url, $path: $zap-image-path) {
+    @return url(#{$path}#{$url});
+}
+
+@function zap-strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+@function zap-parse-int($value) {
+    @return zap-strip-units($value);
+}
+
+// Usage: zap-rem(2px 10px 0 4px);
+// TODO: mixed values of rem/px as with the rem mixin & fallbacks
+@function zap-rem($px-values, $base: $zap-font-size-html) {
+    $return: 0;
+
+    @if type-of($px-values) == 'number' {
+        $return: ($px-values / $base) + rem;
+    } @else {
+        $rem-values: ();
+
+        @each $value in $px-values {
+            @if $value == 0 {
+                $rem-values: append($rem-values, $value);
+            } @else {
+                $rem-values: append($rem-values, ($value / $base) + rem);
+            }
+        }
+
+        $return: $rem-values;
+    }
+
+    @return $return;
+}
+
+@function zap-is-bright($color) {
+    @return (lightness($color) > 50%);
+}
+
+// returns the $lights value if bright, $dark value if dark
+@function zap-if-bright($bg, $light: true, $dark: false) {
+    @return if(zap-is-bright($bg), $light, $dark);
+}
+
+// picks the color with the highest contrast
+@function zap-text-contrast($bg, $dark-text: #000, $light-text: #FFF) {
+    @return zap-if-bright($bg, $dark-text, $light-text);
+}
+
+@function zap-aspect-ratio($width, $height) {
+    @return ($height / $width) * 100%;
+}
+
+// for compass-mixins, TODO: remove when they fixed it
+@if not(function-exists(compact)) {
+    @function compact($vars...) {
+        $first: nth($vars, 1);
+        $sep: comma;
+        $list: ();
+        @if length($vars) == 1 and type_of($first) == 'list' {
+            $vars: $first;
+            $sep: list-separator($vars);
+        }
+        @each $var in $vars {
+            @if $var {
+                $list: append($list, $var, $sep);
+            }
+        }
+        @return $list;
+    }
+}

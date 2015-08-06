@@ -1,0 +1,8 @@
+
+%clearfix {
+    @include zap-clearfix;
+}
+
+%visuallyhidden {
+    @include zap-hide-element;
+}
