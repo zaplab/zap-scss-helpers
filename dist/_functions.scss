@@ -53,6 +53,10 @@
     @return zap-if-bright($bg, $dark-text, $light-text);
 }
 
+@function zap-aspect-ratio($width, $height) {
+    @return ($height / $width) * 100%;
+}
+
 // for compass-mixins, TODO: remove when they fixed it
 @if not(function-exists(compact)) {
   @function compact($vars...) {

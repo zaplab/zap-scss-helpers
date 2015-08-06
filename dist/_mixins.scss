@@ -107,3 +107,21 @@
         @content;
     }
 }
+
+@mixin zap-aspect-ratio($width, $height, $with-pseudo-element: true) {
+    position: relative;
+    overflow: hidden;
+
+    @if $with-pseudo-element {
+        &:before {
+            content: "";
+            display: block;
+            width: 100%;
+            padding-top: ($height / $width) * 100%;
+        }
+    } @else {
+        padding-bottom: ($height / $width) * 100%;
+    }
+
+    @content;
+}
