@@ -7,7 +7,7 @@
     }
 }
 
-@mixin zap-rem($property, $values) {
+@mixin zap-rem($property, $values, $base: $zap-font-size-html) {
     $px: ();
     $rem: ();
 
@@ -21,13 +21,13 @@
 
             @if $unit == "px" {
                 $px: append($px, round($val) + px);
-                $rem: append($rem, ($val / zap-strip-units($zap-font-size-html) + rem));
+                $rem: append($rem, ($val / zap-strip-units($base) + rem));
             } @else if $unit == "rem" {
-                $px: append($px, (round($val * zap-strip-units($zap-font-size-html)) + px));
+                $px: append($px, (round($val * zap-strip-units($base)) + px));
                 $rem: append($rem, $value);
             } @else {
                 $px: append($px, (round($val) + px));
-                $rem: append($rem, ($val / zap-strip-units($zap-font-size-html) + rem));
+                $rem: append($rem, ($val / zap-strip-units($base) + rem));
             }
         }
     }
