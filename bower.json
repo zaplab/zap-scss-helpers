@@ -8,6 +8,10 @@
       "homepage": "http://www.zaplab.at"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaplab/zap-scss-helpers.git"
+  },
   "main": [
     "dist/main.scss"
   ],
