@@ -2,6 +2,13 @@
   "name": "zap-scss-helpers",
   "private": true,
   "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Sebastian Herber",
+      "email": "herber@zaplab.at",
+      "homepage": "http://www.zaplab.at"
+    }
+  ],
   "main": [
     "dist/_functions.scss",
     "dist/_mixins.scss",
