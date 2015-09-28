@@ -1,12 +1,18 @@
 {
   "name": "zap-scss-helpers",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Sebastian Herber",
+      "email": "herber@zaplab.at",
+      "homepage": "http://www.zaplab.at"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaplab/zap-scss-helpers.git"
+  },
   "main": [
-    "dist/_functions.scss",
-    "dist/_mixins.scss",
-    "dist/_utilities.scss",
-    "dist/_variables.scss",
     "dist/main.scss"
   ],
   "ignore": [
