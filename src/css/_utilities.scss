@@ -1,8 +1,12 @@
 
-%clearfix {
+%zap-clearfix {
     @include zap-clearfix;
 }
 
-%visuallyhidden {
+%zap-visuallyhidden {
     @include zap-hide-element;
+}
+
+%zap-reset-list {
+    @include zap-reset-list;
 }
