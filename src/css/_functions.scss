@@ -1,3 +1,4 @@
+
 @function zap-add-no-query($media) {
     @return $media, 'no-query' true;
 }
@@ -48,7 +49,7 @@
 }
 
 // picks the color with the highest contrast
-@function zap-text-contrast($bg, $dark-text: #000, $light-text: #FFF) {
+@function zap-text-contrast($bg, $dark-text: #000, $light-text: #fff) {
     @return zap-if-bright($bg, $dark-text, $light-text);
 }
 

@@ -1,4 +1,16 @@
 
+%zap-center-element {
+    @include zap-center-element;
+}
+
+%zap-center-element--x {
+    @include zap-center-element('x');
+}
+
+%zap-center-element--y {
+    @include zap-center-element('y');
+}
+
 %zap-clearfix {
     @include zap-clearfix;
 }

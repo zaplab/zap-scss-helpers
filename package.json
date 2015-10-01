@@ -1,6 +1,6 @@
 {
   "name": "zap-scss-helpers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Sebastian Herber",
     "email": "herber@zaplab.at",
@@ -10,9 +10,11 @@
   "devDependencies": {
     "bower": "^1.4.1",
     "del": "^1.2.0",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-sass-lint": "^1.0.1"
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install"
-  }
+  },
+  "sasslintConfig": "tests/.sass-lint.yml"
 }
