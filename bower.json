@@ -18,6 +18,7 @@
   "ignore": [
     "node_modules",
     "src",
+    "tests",
     ".bowerrc",
     ".editorconfig",
     ".gitignore",
