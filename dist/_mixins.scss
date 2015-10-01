@@ -56,6 +56,25 @@
     }
 }
 
+@mixin zap-center-element($axis: 'both') {
+    position: absolute;
+    @if ($axis == 'x') {
+        top: 0;
+        left: 50%;
+        @include translateX(-50%);
+    }
+    @if ($axis == 'y') {
+        top: 50%;
+        left: 0;
+        @include translateY(-50%);
+    }
+    @if ($axis == 'both') {
+        top: 50%;
+        left: 50%;
+        @include transform(translateX(-50%) translateY(-50%));
+    }
+}
+
 @mixin zap-hide-text() {
     text-indent: 110%;
     white-space: nowrap;
