@@ -138,10 +138,10 @@
             display: block;
             width: 100%;
             padding-top: ($height / $width) * 100%;
+            @content;
         }
     } @else {
         padding-top: ($height / $width) * 100%;
+        @content;
     }
-
-    @content;
 }
