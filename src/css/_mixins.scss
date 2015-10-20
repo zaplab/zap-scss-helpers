@@ -56,22 +56,23 @@
     }
 }
 
-@mixin zap-center-element($axis: 'both') {
+@mixin zap-center-element($x: true, $y: true) {
     position: absolute;
-    @if ($axis == 'x') {
-        top: 0;
-        left: 50%;
-        @include translateX(-50%);
-    }
-    @if ($axis == 'y') {
-        top: 50%;
-        left: 0;
-        @include translateY(-50%);
-    }
-    @if ($axis == 'both') {
+    @if $x and $y {
         top: 50%;
         left: 50%;
         @include transform(translateX(-50%) translateY(-50%));
+    } @else {
+        @if $x {
+            top: 0;
+            left: 50%;
+            @include translateX(-50%);
+        }
+        @if $y {
+            top: 50%;
+            left: 0;
+            @include translateY(-50%);
+        }
     }
 }
 
