@@ -4,11 +4,11 @@
 }
 
 %zap-center-element--x {
-    @include zap-center-element('x');
+    @include zap-center-element($y: false);
 }
 
 %zap-center-element--y {
-    @include zap-center-element('y');
+    @include zap-center-element($x: false);
 }
 
 %zap-clearfix {
