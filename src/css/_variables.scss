@@ -1,7 +1,19 @@
 
 $zap-font-size-html: 16px !default;
 $zap-image-path: '../img/' !default;
+$zap-autoprefixer-enabled: false !default;
 
 // for rem mixin
 $zap-rem-support: true !default;
 $zap-rem-fallback: false !default;
+
+
+// print css debug helper
+// intended in combination with the 'compass-breakpoint' mixin
+// @include breakpoint($print-mq) {}
+$debug-print-mq: false !default;
+$print-mq: print;
+
+@if $debug-print-mq {
+    $print-mq: zap-add-no-query(print);
+}
