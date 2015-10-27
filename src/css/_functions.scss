@@ -56,3 +56,7 @@
 @function zap-aspect-ratio($width, $height) {
     @return ($height / $width) * 100%;
 }
+
+@function zap-is-number($value) {
+    @return type-of($value) == 'number';
+}

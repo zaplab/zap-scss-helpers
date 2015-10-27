@@ -3,7 +3,11 @@
     *,
     *:before,
     *:after {
-        @include box-sizing(border-box);
+        @if $zap-autoprefixer-enabled {
+            box-sizing: border-box;
+        } @else {
+            @include box-sizing(border-box);
+        }
     }
 }
 
@@ -56,22 +60,63 @@
     }
 }
 
-@mixin zap-center-element($x: true, $y: true) {
+@mixin zap-center-element($x: true, $y: true, $scale: false) {
+    $scaleValue: 1;
+    @if zap-is-number($scale) {
+        $scaleValue: $scale;
+    }
+
     position: absolute;
     @if $x and $y {
         top: 50%;
         left: 50%;
-        @include transform(translateX(-50%) translateY(-50%));
+        @if $scale {
+            @if $zap-autoprefixer-enabled {
+                transform: translateX(-50%) translateY(-50%) scale($scaleValue);
+            } @else {
+                @include transform(translateX(-50%) translateY(-50%) scale($scaleValue));
+            }
+        } @else {
+            @if $zap-autoprefixer-enabled {
+                transform: translateX(-50%) translateY(-50%);
+            } @else {
+                @include transform(translateX(-50%) translateY(-50%));
+            }
+        }
     } @else {
         @if $x {
             top: 0;
             left: 50%;
-            @include translateX(-50%);
+            @if $scale {
+                @if $zap-autoprefixer-enabled {
+                    transform: translateX(-50%) scale($scaleValue);
+                } @else {
+                    @include transform(translateX(-50%) scale($scaleValue));
+                }
+            } @else {
+                @if $zap-autoprefixer-enabled {
+                    transform: translateX(-50%);
+                } @else {
+                    @include translateX(-50%);
+                }
+            }
         }
         @if $y {
             top: 50%;
             left: 0;
-            @include translateY(-50%);
+            @if $scale {
+                @if $zap-autoprefixer-enabled {
+                    transform: translateY(-50%) scale($scaleValue);
+                } @else {
+                    @include transform(translateY(-50%) scale($scaleValue));
+                }
+            } @else {
+                @if $zap-autoprefixer-enabled {
+                    transform: translateY(-50%);
+                } @else {
+                    @include translateY(-50%);
+                }
+            }
         }
     }
 }
