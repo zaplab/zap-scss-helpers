@@ -1,12 +1,24 @@
 {
   "name": "zap-scss-helpers",
-  "version": "0.2.1",
+  "version": "0.2.2",
+  "description": "helper variables, mixins and functions for scss",
   "author": {
     "name": "Sebastian Herber",
     "email": "herber@zaplab.at",
     "url": "http://www.zaplab.at"
   },
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaplab/zap-scss-helpers.git"
+  },
+  "main": "dist/main.scss",
+  "keywords": [
+    "mixins",
+    "sass"
+  ],
+  "dependencies": {
+    "compass-mixins": "^0.12.7"
+  },
   "devDependencies": {
     "bower": "^1.4.1",
     "del": "^1.2.0",
