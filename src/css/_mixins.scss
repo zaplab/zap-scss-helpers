@@ -192,3 +192,25 @@
         @content;
     }
 }
+
+@mixin zap-triangle($direction: top, $color: $zap-arrow-color, $size: $zap-arrow-size) {
+    border: $size solid transparent;
+    @include zap-triangle-color($direction, $color);
+}
+
+@mixin zap-triangle-color($direction: top, $color: $zap-arrow-color) {
+    border-color: transparent;
+    @if (unquote($direction) == top) {
+        border-bottom-color: $color;
+    } @else if (unquote($direction) == right) {
+        border-left-color: $color;
+    } @else if (unquote($direction) == bottom) {
+        border-top-color: $color;
+    } @else if (unquote($direction) == left) {
+        border-right-color: $color;
+    }
+}
+
+@mixin zap-triangle-size($size: $zap-arrow-size) {
+    border-width: $size;
+}
