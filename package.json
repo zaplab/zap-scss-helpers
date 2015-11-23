@@ -1,6 +1,6 @@
 {
   "name": "zap-scss-helpers",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "helper variables, mixins and functions for scss",
   "author": {
     "name": "Sebastian Herber",
@@ -25,8 +25,4 @@
     "gulp": "^3.9.0",
     "gulp-sass-lint": "^1.0.1"
   },
-  "scripts": {
-    "postinstall": "node_modules/.bin/bower install"
-  },
-  "sasslintConfig": "tests/.sass-lint.yml"
 }

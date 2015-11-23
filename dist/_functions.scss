@@ -4,7 +4,7 @@
 }
 
 @function zap-image-url($url, $path: $zap-image-path) {
-    @return url(#{$path}#{$url});
+    @return url('#{$path}#{$url}');
 }
 
 @function zap-strip-units($number) {

@@ -13,7 +13,11 @@ gulp.task('clean', function (cb) {
 
 gulp.task('css', ['clean'], function() {
     return gulp.src('src/css/**/*.scss')
-        //.pipe(sassLint())
+        //.pipe(sassLint({
+        //    options: {
+        //        'config-file': 'tests/.sass-lint.yml',
+        //    },
+        //}))
         //.pipe(sassLint.format())
         //.pipe(sassLint.failOnError())
         .pipe(gulp.dest('dist/'))

@@ -7,6 +7,9 @@ $zap-autoprefixer-enabled: false !default;
 $zap-rem-support: true !default;
 $zap-rem-fallback: false !default;
 
+// arrow
+$zap-arrow-color: #000 !default;
+$zap-arrow-size: 10px !default;
 
 // print css debug helper
 // intended in combination with the 'compass-breakpoint' mixin
