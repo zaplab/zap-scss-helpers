@@ -1,6 +1,6 @@
 {
   "name": "zap-scss-helpers",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "helper variables, mixins and functions for scss",
   "author": {
     "name": "Sebastian Herber",
@@ -24,5 +24,5 @@
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-sass-lint": "^1.0.1"
-  },
+  }
 }
