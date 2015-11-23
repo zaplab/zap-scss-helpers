@@ -25,5 +25,4 @@
     "gulp": "^3.9.0",
     "gulp-sass-lint": "^1.0.1"
   },
-  "sasslintConfig": "tests/.sass-lint.yml"
 }

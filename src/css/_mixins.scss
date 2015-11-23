@@ -61,9 +61,9 @@
 }
 
 @mixin zap-center-element($x: true, $y: true, $scale: false) {
-    $scaleValue: 1;
+    $scale-value: 1;
     @if zap-is-number($scale) {
-        $scaleValue: $scale;
+        $scale-value: $scale;
     }
 
     position: absolute;
@@ -72,9 +72,9 @@
         left: 50%;
         @if $scale {
             @if $zap-autoprefixer-enabled {
-                transform: translateX(-50%) translateY(-50%) scale($scaleValue);
+                transform: translateX(-50%) translateY(-50%) scale($scale-value);
             } @else {
-                @include transform(translateX(-50%) translateY(-50%) scale($scaleValue));
+                @include transform(translateX(-50%) translateY(-50%) scale($scale-value));
             }
         } @else {
             @if $zap-autoprefixer-enabled {
@@ -89,9 +89,9 @@
             left: 50%;
             @if $scale {
                 @if $zap-autoprefixer-enabled {
-                    transform: translateX(-50%) scale($scaleValue);
+                    transform: translateX(-50%) scale($scale-value);
                 } @else {
-                    @include transform(translateX(-50%) scale($scaleValue));
+                    @include transform(translateX(-50%) scale($scale-value));
                 }
             } @else {
                 @if $zap-autoprefixer-enabled {
@@ -106,9 +106,9 @@
             left: 0;
             @if $scale {
                 @if $zap-autoprefixer-enabled {
-                    transform: translateY(-50%) scale($scaleValue);
+                    transform: translateY(-50%) scale($scale-value);
                 } @else {
-                    @include transform(translateY(-50%) scale($scaleValue));
+                    @include transform(translateY(-50%) scale($scale-value));
                 }
             } @else {
                 @if $zap-autoprefixer-enabled {
