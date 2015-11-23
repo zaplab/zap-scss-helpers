@@ -148,14 +148,14 @@
     @include zap-reset-list($margin, $padding);
 }
 
-// just use $classList: '' if you want to achieve &,&:focus,&:hover for example
-@mixin zap-hover($focus: true, $active: false, $classList: null) {
+// just use $class-list: '' if you want to achieve &,&:focus,&:hover for example
+@mixin zap-hover($focus: true, $active: false, $class-list: null) {
     $selector: ();
 
     // TODO: multiple ..
-    @if ($classList != null) {
-        $classList: unquote('&#{$classList}');
-        $selector: append($selector, unquote($classList), comma);
+    @if ($class-list != null) {
+        $class-list: unquote('&#{$class-list}');
+        $selector: append($selector, unquote($class-list), comma);
     }
 
     @if ($active) {
@@ -173,8 +173,10 @@
     }
 }
 
-@mixin zap-aspect-ratio($width, $height, $with-pseudo-element: true) {
-    position: relative;
+@mixin zap-aspect-ratio($width, $height, $with-pseudo-element: true, $position: relative) {
+    @if ($position != null) {
+        position: $position;
+    }
     overflow: hidden;
 
     @if $with-pseudo-element {

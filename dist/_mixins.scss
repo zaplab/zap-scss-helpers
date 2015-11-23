@@ -173,8 +173,10 @@
     }
 }
 
-@mixin zap-aspect-ratio($width, $height, $with-pseudo-element: true) {
-    position: relative;
+@mixin zap-aspect-ratio($width, $height, $with-pseudo-element: true, $position: relative) {
+    @if ($position != null) {
+        position: $position;
+    }
     overflow: hidden;
 
     @if $with-pseudo-element {
