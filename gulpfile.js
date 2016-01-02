@@ -11,15 +11,29 @@ gulp.task('clean', function (cb) {
     ], cb);
 });
 
-gulp.task('css', ['clean'], function() {
+gulp.task('sass-lint', function() {
     return gulp.src('src/css/**/*.scss')
-        //.pipe(sassLint({
-        //    options: {
-        //        'config-file': 'tests/.sass-lint.yml',
-        //    },
-        //}))
-        //.pipe(sassLint.format())
-        //.pipe(sassLint.failOnError())
+        .pipe(sassLint({
+            options: {
+                'config-file': 'tests/.sass-lint.yml',
+            },
+        }))
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
+        .on('error', function (error) {
+            console.error('' + error);
+        });
+});
+
+gulp.task('test', [
+    // 'sass-lint',
+]);
+
+gulp.task('css', [
+    'clean',
+    'test',
+], function() {
+    return gulp.src('src/css/**/*.scss')
         .pipe(gulp.dest('dist/'))
         .on('error', function (error) {
             console.error('' + error);
