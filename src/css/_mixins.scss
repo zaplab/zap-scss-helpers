@@ -214,3 +214,15 @@
 @mixin zap-triangle-size($size: $zap-arrow-size) {
     border-width: $size;
 }
+
+@mixin zap-if-ltr {
+    @if ($zap-direction == 'ltr') {
+        @content;
+    }
+}
+
+@mixin zap-if-rtl {
+    @if ($zap-direction == 'rtl') {
+        @content;
+    }
+}

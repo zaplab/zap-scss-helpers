@@ -3,6 +3,8 @@ $zap-font-size-html: 16px !default;
 $zap-image-path: '../img/' !default;
 $zap-autoprefixer-enabled: false !default;
 
+$zap-direction: ltr !default;
+
 // for rem mixin
 $zap-rem-support: true !default;
 $zap-rem-fallback: false !default;
