@@ -60,3 +60,15 @@
 @function zap-is-number($value) {
     @return type-of($value) == 'number';
 }
+
+@function zap-if-ltr($true, $false) {
+    @if ($zap-direction == 'ltr') {
+        @return $true;
+    } @else {
+        @return $false;
+    }
+}
+
+@function zap-if-rtl($true, $false) {
+    @return zap-if-ltr($false, $true);
+}

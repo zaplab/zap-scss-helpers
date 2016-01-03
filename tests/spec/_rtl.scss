@@ -1,0 +1,43 @@
+
+$zap-direction: rtl;
+
+@include test-module('RTL') {
+    // Testing Functions
+    @include test('zap-if-ltr [function]') {
+        $test: zap-if-ltr('LTR', 'RTL');
+        $expect: 'RTL';
+
+        @include assert-equal($test, $expect, 'Returns the string \'RTL\'');
+    }
+
+    @include test('zap-if-rtl [function]') {
+        $test: zap-if-rtl('RTL', 'LTR');
+        $expect: 'RTL';
+
+        @include assert-equal($test, $expect, 'Returns the string \'RTL\'');
+    }
+
+    @include test('zap-if-rtl [mixin]') {
+        @include assert('Outputs content if RTL') {
+            @include input {
+                @include zap-if-rtl {
+                    content: 'RTL';
+                }
+            }
+
+            @include expect {
+                content: 'RTL';
+            }
+        }
+
+        @include assert('Does not output content if RTL') {
+            @include input {
+                @include zap-if-ltr {
+                    content: 'LTR';
+                }
+            }
+
+            @include expect {}
+        }
+    }
+}

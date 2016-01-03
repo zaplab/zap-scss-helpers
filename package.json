@@ -1,6 +1,6 @@
 {
   "name": "zap-scss-helpers",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "helper variables, mixins and functions for scss",
   "author": {
     "name": "Sebastian Herber",
@@ -16,6 +16,9 @@
     "mixins",
     "sass"
   ],
+  "scripts": {
+    "test": "./node_modules/jasmine-node/bin/jasmine-node ./tests/spec --matchall --verbose"
+  },
   "dependencies": {
     "compass-mixins": "^0.12.7"
   },
@@ -23,6 +26,9 @@
     "bower": "^1.4.1",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
-    "gulp-sass-lint": "^1.0.1"
+    "gulp-sass-lint": "^1.0.1",
+    "jasmine": "^2.4.1 ",
+    "jasmine-node": "^1.14.5",
+    "sass-true": "^2.0.3"
   }
 }
