@@ -1,6 +1,6 @@
 {
   "name": "zap-scss-helpers",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "helper variables, mixins and functions for scss",
   "author": {
     "name": "Sebastian Herber",
