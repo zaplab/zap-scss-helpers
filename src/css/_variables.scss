@@ -4,6 +4,19 @@ $zap-image-path: '../img/' !default;
 $zap-autoprefixer-enabled: false !default;
 
 $zap-direction: ltr !default;
+$zap-ltr-left: left !default;
+$zap-ltr-right: right !default;
+
+$zap-rtl-left: right !default;
+$zap-rtl-right: left !default;
+
+@if $zap-direction == rtl {
+    $zap-ltr-left: right;
+    $zap-ltr-right: left;
+
+    $zap-rtl-left: left;
+    $zap-rtl-right: right;
+}
 
 // for rem mixin
 $zap-rem-support: true !default;

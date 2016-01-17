@@ -1,7 +1,37 @@
 
+$_zap-direction-cache: $zap-direction;
 $zap-direction: rtl;
+@import "src/css/main";
 
 @include test-module('RTL') {
+    @include test('zap-ltr-left [variable]') {
+        $test: $zap-ltr-left;
+        $expect: right;
+
+        @include assert-equal($test, $expect, 'Returns the string \'right\'');
+    }
+
+    @include test('zap-ltr-right [variable]') {
+        $test: $zap-ltr-right;
+        $expect: left;
+
+        @include assert-equal($test, $expect, 'Returns the string \'left\'');
+    }
+
+    @include test('zap-rtl-left [variable]') {
+        $test: $zap-rtl-left;
+        $expect: left;
+
+        @include assert-equal($test, $expect, 'Returns the string \'left\'');
+    }
+
+    @include test('zap-rtl-right [variable]') {
+        $test: $zap-rtl-right;
+        $expect: right;
+
+        @include assert-equal($test, $expect, 'Returns the string \'right\'');
+    }
+
     // Testing Functions
     @include test('zap-if-ltr [function]') {
         $test: zap-if-ltr('LTR', 'RTL');
@@ -41,3 +71,7 @@ $zap-direction: rtl;
         }
     }
 }
+
+// reset zap-direction
+$zap-direction: $_zap-direction-cache;
+@import "src/css/main";
