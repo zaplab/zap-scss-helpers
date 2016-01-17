@@ -1,5 +1,33 @@
 
 @include test-module('LTR') {
+    @include test('zap-ltr-left [variable]') {
+        $test: $zap-ltr-left;
+        $expect: left;
+
+        @include assert-equal($test, $expect, 'Returns the string \'left\'');
+    }
+
+    @include test('zap-ltr-right [variable]') {
+        $test: $zap-ltr-right;
+        $expect: right;
+
+        @include assert-equal($test, $expect, 'Returns the string \'right\'');
+    }
+
+    @include test('zap-rtl-left [variable]') {
+        $test: $zap-rtl-left;
+        $expect: right;
+
+        @include assert-equal($test, $expect, 'Returns the string \'right\'');
+    }
+
+    @include test('zap-rtl-right [variable]') {
+        $test: $zap-rtl-right;
+        $expect: left;
+
+        @include assert-equal($test, $expect, 'Returns the string \'left\'');
+    }
+
     // Testing Functions
     @include test('zap-if-ltr [function]') {
         $test: zap-if-ltr('LTR', 'RTL');
