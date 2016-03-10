@@ -17,7 +17,7 @@
     "sass"
   ],
   "scripts": {
-    "test": "./node_modules/jasmine-node/bin/jasmine-node ./tests/spec --matchall --verbose"
+    "test": "jasmine-node ./tests/spec --matchall --verbose"
   },
   "dependencies": {
     "compass-mixins": "^0.12.7"
