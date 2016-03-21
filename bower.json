@@ -18,10 +18,11 @@
     "node_modules",
     "src",
     "tests",
+    ".babelrc",
     ".bowerrc",
     ".editorconfig",
     ".gitignore",
-    "gulpfile.js",
+    "gulpfile.babel.js",
     "package.json"
   ],
   "dependencies": {
