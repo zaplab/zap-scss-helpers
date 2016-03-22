@@ -7,6 +7,6 @@ const sassFile = path.join(__dirname, 'main.scss');
 sassTrue.runSass({
     file: sassFile,
     includePaths: [
-        'src/libs/bower',
+        'node_modules',
     ],
 }, describe, it);

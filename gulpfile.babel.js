@@ -1,17 +1,26 @@
 
-'use strict';
+import del from 'del';
+import gulp from 'gulp';
+import sassLint from 'gulp-sass-lint';
 
-var del = require('del');
-var gulp = require('gulp');
-var sassLint = require('gulp-sass-lint');
+function onWarning(error) {
+    gutil.log(error);
+}
 
-gulp.task('clean', function (cb) {
+function onError(error) {
+    gutil.log(error);
+    process.exit(1);
+}
+
+gulp.task('clean', gulpCallback => {
     del([
-        'dist'
-    ], cb);
+        'dist',
+    ]).then(() => {
+        gulpCallback();
+    });
 });
 
-gulp.task('sass-lint', function() {
+gulp.task('sass-lint', () => {
     return gulp.src('src/css/**/*.scss')
         .pipe(sassLint({
             options: {
@@ -20,9 +29,7 @@ gulp.task('sass-lint', function() {
         }))
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError())
-        .on('error', function (error) {
-            console.error('' + error);
-        });
+        .on('error', onWarning);
 });
 
 gulp.task('test', [
@@ -31,16 +38,14 @@ gulp.task('test', [
 
 gulp.task('css', [
     'clean',
-    'test',
-], function() {
+    // 'test',
+], () => {
     return gulp.src('src/css/**/*.scss')
         .pipe(gulp.dest('dist/'))
-        .on('error', function (error) {
-            console.error('' + error);
-        });
+        .on('error', onError);
 });
 
 gulp.task('default', [
     'clean',
-    'css'
+    'css',
 ]);
