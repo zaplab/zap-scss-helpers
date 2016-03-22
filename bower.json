@@ -25,8 +25,6 @@
     "gulpfile.babel.js",
     "package.json"
   ],
-  "dependencies": {
-    "compass-mixins": "^0.12.7"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
