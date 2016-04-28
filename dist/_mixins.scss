@@ -3,11 +3,7 @@
     *,
     *:before,
     *:after {
-        @if $zap-autoprefixer-enabled {
-            box-sizing: border-box;
-        } @else {
-            @include box-sizing(border-box);
-        }
+        box-sizing: border-box;
     }
 }
 
@@ -71,51 +67,27 @@
         top: 50%;
         left: 50%;
         @if $scale {
-            @if $zap-autoprefixer-enabled {
-                transform: translateX(-50%) translateY(-50%) scale($scale-value);
-            } @else {
-                @include transform(translateX(-50%) translateY(-50%) scale($scale-value));
-            }
+            transform: translateX(-50%) translateY(-50%) scale($scale-value);
         } @else {
-            @if $zap-autoprefixer-enabled {
-                transform: translateX(-50%) translateY(-50%);
-            } @else {
-                @include transform(translateX(-50%) translateY(-50%));
-            }
+            transform: translateX(-50%) translateY(-50%);
         }
     } @else {
         @if $x {
             top: 0;
             left: 50%;
             @if $scale {
-                @if $zap-autoprefixer-enabled {
-                    transform: translateX(-50%) scale($scale-value);
-                } @else {
-                    @include transform(translateX(-50%) scale($scale-value));
-                }
+                transform: translateX(-50%) scale($scale-value);
             } @else {
-                @if $zap-autoprefixer-enabled {
-                    transform: translateX(-50%);
-                } @else {
-                    @include translateX(-50%);
-                }
+                transform: translateX(-50%);
             }
         }
         @if $y {
             top: 50%;
             left: 0;
             @if $scale {
-                @if $zap-autoprefixer-enabled {
-                    transform: translateY(-50%) scale($scale-value);
-                } @else {
-                    @include transform(translateY(-50%) scale($scale-value));
-                }
+                transform: translateY(-50%) scale($scale-value);
             } @else {
-                @if $zap-autoprefixer-enabled {
-                    transform: translateY(-50%);
-                } @else {
-                    @include translateY(-50%);
-                }
+                transform: translateY(-50%);
             }
         }
     }
