@@ -34,12 +34,12 @@ gulp.task('sass-lint', () => {
 });
 
 gulp.task('test', [
-    // 'sass-lint',
+    'sass-lint',
 ]);
 
 gulp.task('css', [
     'clean',
-    // 'test',
+    'test',
 ], () => {
     return gulp.src('src/css/**/*.scss')
         .pipe(gulp.dest('dist/'))
