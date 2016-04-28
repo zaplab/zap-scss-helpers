@@ -1,6 +1,6 @@
 {
   "name": "zap-scss-helpers",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "helper variables, mixins and functions for scss",
   "author": {
     "name": "Sebastian Herber",
@@ -32,6 +32,7 @@
     "gulp-sass-lint": "^1.1.1",
     "jasmine": "^2.4.1",
     "jasmine-node": "^1.14.5",
+    "node-sass": "3.4.2",
     "sass-true": "^2.0.3"
   }
 }

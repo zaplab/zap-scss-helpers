@@ -2,6 +2,7 @@
 import del from 'del';
 import gulp from 'gulp';
 import sassLint from 'gulp-sass-lint';
+import gutil from 'gulp-util';
 
 function onWarning(error) {
     gutil.log(error);
@@ -33,12 +34,12 @@ gulp.task('sass-lint', () => {
 });
 
 gulp.task('test', [
-    // 'sass-lint',
+    'sass-lint',
 ]);
 
 gulp.task('css', [
     'clean',
-    // 'test',
+    'test',
 ], () => {
     return gulp.src('src/css/**/*.scss')
         .pipe(gulp.dest('dist/'))
