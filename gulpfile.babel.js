@@ -2,6 +2,7 @@
 import del from 'del';
 import gulp from 'gulp';
 import sassLint from 'gulp-sass-lint';
+import gutil from 'gulp-util';
 
 function onWarning(error) {
     gutil.log(error);
